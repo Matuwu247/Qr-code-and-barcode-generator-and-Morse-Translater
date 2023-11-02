@@ -1,11 +1,27 @@
 #!/bin/bash
-
+echo -e "\n\t\t\t\t\t\tCargando su Codigo QR personalizado"
+barra()
+{
+echo -e "\v"
+seconds=0,08
+clear
+for i in {1..50..1}
+do
+   echo -n "███"   
+   sleep $seconds
+done
+echo -e "\n\t\t\t\t\t\tQR generado, presione ENTER para continuar"
+}
 case ${1,,} in
     "-q")
     	shift 1
         arg=$@
         export ARGUMENTO="$arg"
-	g++ -Wall Qrcode.cpp qrcodegen.cpp qrcodegen.hpp -o salida.out
+	barra & pid1=$!
+	g++ -Wall Qrcode.cpp qrcodegen.cpp qrcodegen.hpp -o salida.out & pid2=$!
+	wait $pid1
+	wait $pid2
+	read a
 	./salida.out
 	
     ;; 
@@ -40,3 +56,6 @@ case ${1,,} in
         echo "Argumento equivocado"
     ;;
 esac
+
+echo -e "\n\t\t\t\t\t\tPrograma Terminado, presione ENTER para finalizar\v"
+read a
