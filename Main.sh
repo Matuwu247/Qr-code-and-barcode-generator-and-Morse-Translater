@@ -3,7 +3,7 @@
 
 case $1 in
     "-q" | "-Q")
-        arg=$2
+        arg=$@
         export ARGUMENTO="$arg"
 	g++ -Wall Qrcode.cpp qrcodegen.cpp qrcodegen.hpp -o salida.out
 	./salida.out
@@ -11,7 +11,7 @@ case $1 in
     ;; 
 
     "-m" | "-M") 
-        arg=$2
+        arg=$@
         export ARGUMENTO="$arg"
         g++ MorseTranslator.cpp -o salida.out
         ./salida.out
