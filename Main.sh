@@ -5,7 +5,7 @@ case $1 in
     "-q" | "-Q")
         arg=$2
         export ARGUMENTO="$arg"
-	g++ -Wall Codigoqr.cpp qrcodegen.cpp qrcodegen.hpp -o salida.out
+	g++ -Wall Qrcode.cpp qrcodegen.cpp qrcodegen.hpp -o salida.out
 	./salida.out
     
     ;; 
@@ -13,7 +13,7 @@ case $1 in
     "-m" | "-M") 
         arg=$2
         export ARGUMENTO="$arg"
-        g++ morse.cpp -o salida.out
+        g++ morseTranslator.cpp -o salida.out
         ./salida.out
         
      ;;
@@ -31,5 +31,3 @@ case $1 in
         echo "Argumento equivocado"
     ;;
 esac
-
-
