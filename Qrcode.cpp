@@ -56,7 +56,8 @@ static std::string toSvgString(const QrCode &qr, int border)
 // Printea el codigo QR en la consola
 static void printQr(const QrCode &qr)
 {
-	int border = 2;
+	int border = 2;		
+	cout << "\t\t\t";
 	for (int y = -border; y < qr.getSize() + border; y++)
 	{
 		for (int x = -border; x < qr.getSize() + border; x++)
@@ -64,5 +65,6 @@ static void printQr(const QrCode &qr)
 			cout << (qr.getModule(x, y) ? "███" : "   ");
 		}
 		cout << endl;
+		cout << "\t\t\t";
 	}
 }
