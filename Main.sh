@@ -13,7 +13,7 @@ case $1 in
     "-m" | "-M") 
         arg=$2
         export ARGUMENTO="$arg"
-        g++ morseTranslator.cpp -o salida.out
+        g++ MorseTranslator.cpp -o salida.out
         ./salida.out
         
      ;;
