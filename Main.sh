@@ -1,8 +1,8 @@
 #!/bin/bash
 
-
 case $1 in
     "-q" | "-Q")
+    	shift 1
         arg=$@
         export ARGUMENTO="$arg"
 	g++ -Wall Qrcode.cpp qrcodegen.cpp qrcodegen.hpp -o salida.out
@@ -11,6 +11,7 @@ case $1 in
     ;; 
 
     "-m" | "-M") 
+        shift 1
         arg=$@
         export ARGUMENTO="$arg"
         g++ MorseTranslator.cpp -o salida.out
