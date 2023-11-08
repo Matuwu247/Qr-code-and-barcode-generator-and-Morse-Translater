@@ -20,6 +20,19 @@ case ${1,,} in
         ./salidaM.out
         
      ;;
+     "-b")
+	shift 1
+        arg=$@
+        export ARGUMENTO="$arg"
+	python3 Barcode.py
+     ;;
+         "-qm") 
+	shift 1
+        arg=$@
+        export ARGUMENTO="$arg"
+        ./salidaQ.out
+        ./salidaM.out
+     ;;
     "-h" | "--help")
         echo "Buenas usuario el codigo funciona de la siguiente manera:
     Primero deberemos de colocar que tipo de transformacion queremos. Esto lo haremos poniendo los 
@@ -29,16 +42,11 @@ case ${1,,} in
     Luego para el texto a traducir debemos colocar unas comillas a continuacion del primer parametro es 
     decir a continuacion del -m o -q. Es importante que este entre comillas porque sino no funcionara."
     ;;
-    "-qm") 
-	shift 1
-        arg=$@
-        export ARGUMENTO="$arg"
-        ./salidaQ.out
-        ./salidaM.out
-     ;;
+
     *)
         echo "Argumento equivocado"
     ;;
 esac
 echo -e "\n\t\t\t\t\t\tPrograma Terminado, presione ENTER para finalizar\v"
 read a
+clear
