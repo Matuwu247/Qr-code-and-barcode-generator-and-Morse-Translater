@@ -37,4 +37,3 @@ we used the nayuki library for QR Code;
 https://github.com/nayuki/QR-Code-generator.git
 and the WhyNotHugo library for BarCode;
 https://github.com/WhyNotHugo/python-barcode.git
-](https://github.com/WhyNotHugo/python-barcode.git)https://github.com/WhyNotHugo/python-barcode.git
