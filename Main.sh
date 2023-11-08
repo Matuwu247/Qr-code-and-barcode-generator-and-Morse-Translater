@@ -1,10 +1,4 @@
 #!/bin/bash
-exportvar()
-{
-    	shift 1
-        arg=$@
-        export ARGUMENTO="$arg"
-}
 case ${1,,} in
     "-q")
     	shift 1
@@ -39,6 +33,7 @@ case ${1,,} in
     siguientes parametros:
     -q o -Q: Este parametro es la transformacion del texto ingresado a codigo QR
     -m o -M: Este parametro es la transformacion del texto ingresado a codigo Morse
+    -b o -B: Este parametro es la transformacion del texto ingresado a codigo de barras
     Luego para el texto a traducir debemos colocar unas comillas a continuacion del primer parametro es 
     decir a continuacion del -m o -q. Es importante que este entre comillas porque sino no funcionara."
     ;;
