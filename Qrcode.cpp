@@ -10,34 +10,29 @@
 using namespace std;
 using qrcodegen::QrCode;
 using qrcodegen::QrSegment;
-using std::uint8_t;
+using std::uint8_t; 
 
 // Function prototypes
-static void doBasicDemo();
-static std::string toSvgString(const QrCode &qr, int border);
-static void printQr(const QrCode &qr);
+static void doBasicDemo(); //declara la funcion dobasicdemo
+static std::string toSvgString(const QrCode &qr, int border); // declara la funcion para transformar de string a Svg
+static void printQr(const QrCode &qr); // declara la funcion para dibujar en consola el QR
 
-// The main application program.
 int main()
 {
-
-	doBasicDemo();
+	doBasicDemo(); // hace el qr ;D
 	return 0;
 }
 
-/*---- Demo suite ----*/
-
-// Creates a single QR Code, then prints it to the console.
+// Crea el QR, y llamando otra funcion lo muestra 
 static void doBasicDemo()
 {
-	string arg = getenv("ARGUMENTO");
-	const char *text = arg.data();					 // User-supplied text
-	const QrCode::Ecc errCorLvl = QrCode::Ecc::HIGH; // Error correction level
+	string arg = getenv("ARGUMENTO"); // consigue la variable de entorno y la pasa a arg
+	const char *text = arg.data(); 	// convierte la informacion recibida del bash a datos
+	const QrCode::Ecc errCorLvl = QrCode::Ecc::HIGH; // pone el qr en calidad alta
 
 	// Make and print the QR Code symbol
-	const QrCode qr = QrCode::encodeText(text, errCorLvl);
-	printQr(qr);
-	cout << toSvgString(qr, 4) << endl;
+	const QrCode qr = QrCode::encodeText(text, errCorLvl); // genera el qr
+	printQr(qr); // dibuja el QR
 }
 
 /*---- Utilities ----*/
@@ -53,7 +48,7 @@ static std::string toSvgString(const QrCode &qr, int border)
 	return sb.str();
 }
 
-// Printea el codigo QR en la consola
+// dibuja el codigo QR en la consola
 static void printQr(const QrCode &qr)
 {
 	int border = 2;		
