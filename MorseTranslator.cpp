@@ -3,23 +3,23 @@
 #include <stdio.h>
 #include <cstdlib>
 #include <map>
-void diccionario();
+void diccionario(); //Instaciacion de la funcio diccionario
 using namespace std;
-map<char, string> mor;
+map<char, string> mor;//Funciones de la biblioteca map para poder crear el diccionario morse
 map<char, string>::iterator iterador;
 int main()
 {
-    string arg = getenv("ARGUMENTO");
+    string arg = getenv("ARGUMENTO"); //Toma el argumento ingresado en la terminal
     diccionario();
     string palabramorse = "";
-    string morse[arg.size()];
+    string morse[arg.size()]; //Declara un vector llamado morse con el largo del argumento
     for (int i = 0; i < arg.size(); i++)
     {
         string a;
-        if (mor.find(tolower(arg[i])) != mor.end())
-        {
+        if (mor.find(tolower(arg[i])) != mor.end()) //Convierte las letras a minuscula
+        { 
             auto it = mor.find(tolower(arg[i]));
-            cout << "El caracter " << it->first << " en morse se traduce como: " << it->second << endl;
+            cout << "El caracter " << it->first << " en morse se traduce como: " << it->second << endl; //Traduce la letra ingresada a morse y la muestra
             morse[i] = it->second;
         }
     }
@@ -30,7 +30,7 @@ int main()
     }
     cout<<"\n\n";
 }
-void diccionario()
+void diccionario() // Funcion diccionario con las traducciones a Morse
 {
 
     mor['a'] = ".-";
